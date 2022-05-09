@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Rand from "./Rand";
 
 function Edit({ edit, cancel, bars }) {
@@ -10,6 +10,7 @@ function Edit({ edit, cancel, bars }) {
   const [type, setType] = useState("White");
   const [quantity, setQuantity] = useState(0);
   const [price, setPrice] = useState(0);
+  const navigate = useNavigate()
 
   useEffect(() => {
     setCode(bars.code);
@@ -53,8 +54,8 @@ function Edit({ edit, cancel, bars }) {
       fat: fat,
       name: name,
       type: type,
-      quantity: quantity,
-      price: parseInt(price),
+      quantity: +quantity,
+      price: +price,
     };
     edit(data);
     // setFat(0);
@@ -70,7 +71,7 @@ function Edit({ edit, cancel, bars }) {
         <div className="title">
           <h2>Update goods</h2>
         </div>
-        <form className="form" onSubmit={handleEdit}>
+        <form className="form" onSubmit={(e)=>{handleEdit(e); navigate('/products')}}>
           <div className="input">
             <label htmlFor="">EAN Code:</label>
             <input type="text" value={code} readOnly />

@@ -33,7 +33,8 @@ const cancel = ()=>{
 ////////// susikuriam elementa ir i local storage
 const create = (data)=> {
 
-  let priceH = []
+  let priceH = [];
+  let quantityH = [];
   
   const bar = {
     code: data.code, 
@@ -44,7 +45,8 @@ const create = (data)=> {
     quantity:data.quantity,
     price: data.price,
     id: getNewId(),
-    history: [...priceH, data.price]
+    history: [...priceH, data.price],
+    historyQuantity : [...quantityH, data.quantity]
   }
   // const history = [...priceHistory, bar]
   // setPriceHistory(history)
@@ -72,10 +74,17 @@ const edit =(data)=> {
       barsCopy[i].quantity = data.quantity;
       barsCopy[i].price = data.price;
       barsCopy[i].history = [...barsCopy[i].history, data.price]
-      // let priceH = data.price
-      // barsCopy.history = data.history.push(priceH)
-      // barsCopy[i].history = data.history
+      barsCopy[i].historyQuantity = [...barsCopy[i].historyQuantity, data.quantity]
+      if(barsCopy[i].history.length>5){
+        barsCopy[i].history.shift()
+      }
+      if( barsCopy[i].historyQuantity.length>5){
+        barsCopy[i].historyQuantity.shift()
+
+      }
+     
     }
+    
   })
   
   localStorage.setItem('bars', JSON.stringify(barsCopy))

@@ -10,14 +10,12 @@ import twix from "../img/twix.jpg";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
 import BarChart from "./BarChart";
-import { Line} from 'react-chartjs-2'
-
+import QuantityChart from "./QuantityChart";
 
 function View({ view, cancelView }) {
-
   const [tabIndex, setTabIndex] = useState(0);
 
   const getPic = () => {
@@ -48,73 +46,59 @@ function View({ view, cancelView }) {
             icon={faTimes}
           ></FontAwesomeIcon> */}
       <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-    <TabList >
-      <Tab >Products details</Tab>
-      <Tab>Price History</Tab>
-      <Tab>Quantity history</Tab>
-    </TabList>
+        <TabList>
+          <Tab>Products details</Tab>
+          <Tab>Price History</Tab>
+          <Tab>Quantity history</Tab>
+        </TabList>
 
-    <TabPanel>
-    <div className="choco">
-        <img src={getPic()} alt="none" />
-        <div className="content">
-          <h2>{view.name}</h2>
-          <p>EAN: {view.code}</p>
-          <p>Types of Chocolate: {view.type}</p>
-          <p>Calories: {view.calories}g </p>
-          <p>Fat: {view.fat}g</p>
-          <p>Quantity: {view.quantity}</p>
-          <p>Price (&#8364;): {view.price}</p>
-        </div>
-        <Link to="/products">
-          <FontAwesomeIcon
-            className="font"
-            onClick={() => cancelView()}
-            icon={faTimes}
-          ></FontAwesomeIcon>
-        </Link>
-      </div>
-    </TabPanel>
-    <TabPanel>
-    <div className="choco">
-        <img src={getPic()} alt="none" />
-        <div className="content">
-          <h2>{view.name}</h2>
-          <p>Price history</p>
-          <BarChart></BarChart>
-          
-        </div>
-        <Link to="/products">
-          <FontAwesomeIcon
-            className="font"
-            onClick={() => cancelView()}
-            icon={faTimes}
-          ></FontAwesomeIcon>
-        </Link>
-      </div>
-    </TabPanel>
-    <TabPanel>
-    <div className="choco">
-        <img src={getPic()} alt="none" />
-        <div className="content">
-          <h2>{view.name}</h2>
-          <p>Quantity history</p>
-          {/* <p>Types of Chocolate: {view.type}</p>
-          <p>Calories: {view.calories}g </p>
-          <p>Fat: {view.fat}g</p>
-          <p>Quantity: {view.quantity}</p>
-          <p>Price (&#8364;): {view.price}</p> */}
-        </div>
-        <Link to="/products">
-          <FontAwesomeIcon
-            className="font"
-            onClick={() => cancelView()}
-            icon={faTimes}
-          ></FontAwesomeIcon>
-        </Link>
-      </div>
-    </TabPanel>
-  </Tabs>
+        <TabPanel>
+          <div className="choco">
+            <img src={getPic()} alt="none" />
+            <div className="content">
+              <h2>{view.name}</h2>
+              <p>EAN: {view.code}</p>
+              <p>Types of Chocolate: {view.type}</p>
+              <p>Calories: {view.calories}g </p>
+              <p>Fat: {view.fat}g</p>
+              <p>Quantity: {view.quantity}</p>
+              <p>Price (&#8364;): {view.price}</p>
+            </div>
+            <Link to="/products">
+              <FontAwesomeIcon
+                className="font"
+                onClick={() => cancelView()}
+                icon={faTimes}
+              ></FontAwesomeIcon>
+            </Link>
+          </div>
+        </TabPanel>
+        <TabPanel>
+          <div className="choco">
+            <BarChart view={view}></BarChart>
+            {/* <img src={getPic()} alt="none" /> */}
+            <Link to="/products">
+              <FontAwesomeIcon
+                className="font"
+                onClick={() => cancelView()}
+                icon={faTimes}
+              ></FontAwesomeIcon>
+            </Link>
+          </div>
+        </TabPanel>
+        <TabPanel>
+          <div className="choco">
+          <QuantityChart view={view}></QuantityChart>
+            <Link to="/products">
+              <FontAwesomeIcon
+                className="font"
+                onClick={() => cancelView()}
+                icon={faTimes}
+              ></FontAwesomeIcon>
+            </Link>
+          </div>
+        </TabPanel>
+      </Tabs>
       {/* <div className="choco">
         <img src={getPic()} alt="none" />
         <div className="content">

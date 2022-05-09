@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Rand from "./Rand";
 
 
@@ -10,6 +12,7 @@ function Create({ create, totalAll }) {
   const [type, setType] = useState("White");
   const [quantity, setQuantity] = useState(0)
   const [price, setPrice] = useState(0)
+  const navigate = useNavigate()
   
   
 
@@ -42,8 +45,8 @@ function Create({ create, totalAll }) {
       fat: fat,
       name: name, 
       type: type,
-      quantity: quantity,
-      price:  parseInt(price)
+      quantity: +quantity,
+      price:  +price
     };
     create(data)
     setFat(0);
@@ -63,7 +66,7 @@ function Create({ create, totalAll }) {
       <div className="title">
         <h2>Add new goods</h2>
       </div>
-      <form className="form" onSubmit={(e) => handleCreate(e)}>
+      <form className="form" onSubmit={(e) =>{ handleCreate(e); navigate("/products") }}>
         <div className="input">
           <label htmlFor="">EAN Code:</label>
           <input type="text" value={code} readOnly />
@@ -101,6 +104,13 @@ function Create({ create, totalAll }) {
           <div className="input-btn">
             <button className="btn" type="submit">
               Create
+            </button>
+          </div>
+        </div>
+        <div className="input">
+          <div className="input-btn">
+            <button className="btn" onClick={e=> navigate("/products") }>
+              Cancel
             </button>
           </div>
         </div>

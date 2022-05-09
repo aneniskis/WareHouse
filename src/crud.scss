@@ -653,6 +653,11 @@ main {
     align-items: center;
     background-color: white;
     position: relative;
+    width: 100%;
+    padding: 20px;
+    gap: 10px;
+    
+    
     .font {
       position: absolute;
       top: 0%;
@@ -689,18 +694,8 @@ main {
     justify-content: center;
     align-items: center;
     position: relative;
-    // .font {
-    //   position: absolute;
-    //   top: 7%;
-    //   left: 61%;
-    //   transform: translate(-50%, -50%);
-    //   background-color: red;
-    //   height: 20px;
-    //   width: 20px;
-    //   border-radius: 50%;
-    //   color: black;
-    //   cursor: pointer;
-    // }
+    
+    
   }
 
 }
