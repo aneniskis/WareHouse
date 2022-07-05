@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/WareHouse/static/css/main.31815562.css",
+    "main.js": "/WareHouse/static/js/main.2471cfc8.js",
+    "static/media/choco-bars.jpg": "/WareHouse/static/media/choco-bars.8a34200909e1e26e5244.jpg",
+    "static/media/bingo.jpg": "/WareHouse/static/media/bingo.e1673cd431d72d7abd77.jpg",
+    "static/media/bounty.jpg": "/WareHouse/static/media/bounty.9c219d4e536064aad258.jpg",
+    "static/media/mars.png": "/WareHouse/static/media/mars.696e04fb1346332f5ed3.png",
+    "index.html": "/WareHouse/index.html",
+    "main.31815562.css.map": "/WareHouse/static/css/main.31815562.css.map",
+    "main.2471cfc8.js.map": "/WareHouse/static/js/main.2471cfc8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.31815562.css",
+    "static/js/main.2471cfc8.js"
+  ]
+}
