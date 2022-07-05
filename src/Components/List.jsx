@@ -2,6 +2,8 @@ import React from 'react';
 import Bars from './Bars';
 
 function List({bars, deleteBar, show, preview, editId}) {
+
+  /////////////////// listai issortiniam headerio lenteles virsus 
   return (
     <div className="list">
     <div className="header">
@@ -30,7 +32,7 @@ function List({bars, deleteBar, show, preview, editId}) {
       </div>
       </div>
     </div>
-    <ul className="listScooter">
+    <ul className="listData">
         {
             bars.map((elem) => <Bars elem={elem} key={elem.id} deleteBar={deleteBar} show={show} preview={preview} editId={editId} ></Bars>)
         }

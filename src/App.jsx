@@ -126,17 +126,17 @@ const deleteBar = id=> {
   localStorage.setItem('bars', JSON.stringify(newData))
   setBars(newData)
 }
-////////////////////////////////
+//////////////////////////////// padarom kad rodytu viena preke
 const preview = (id)=>{
   const newData = bars.filter(elem=> elem.id===id)
   setView(newData[0])
   setModalChoco(1)
-
 }
+/////////// issoktu prekes modalas ir isjungiam/////
 const cancelView = ()=> {
   setModalChoco(0)
 }
-
+///////// kad per routus sokinetu, su id
 const editId = (id)=>{
   seteditID(id)
  
@@ -147,21 +147,19 @@ const editId = (id)=>{
   <main>
       <header className="top">
         <h1>Warehouse</h1>
-      </header>
-      <div className='link'>
+        <div className='link'>
        {/* <Link to='/'></Link> */}
        <Link className='linkRoute' to='/products'>Products</Link>
        <Link className='linkRoute' to='/products/create'>Create</Link>
-       {/* <Link className='linkRoute'to='/products/Edit' >Edit</Link> */}
       </div>
+      </header>
       <section className="mainContent">
         <Routes>
-        {/* <Route path='/'></Route> */}
         <Route path='/products'element={<List bars={bars} deleteBar={deleteBar} show={show} preview={preview} editId={editId} ></List>}></Route>
         <Route path='/products/create' element={<Create create={create}></Create>}></Route>
         <Route path={`/products/:${editID}/edit`} element={modal ? <Edit cancel={cancel} bars={getBars()} edit={edit} ></Edit> : null}></Route>
         <Route path={`/products/:${editID}`} element={
-        modalChocho ? <View view={view} cancelView={cancelView}></View> :null
+        modalChocho ? <View view={view} cancelView={cancelView}></View> : null
       }></Route>
         </Routes>
         

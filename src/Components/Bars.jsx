@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link} from "react-router-dom";
 
 function Bars({ elem, deleteBar, show, preview, editId }) {
+
+ ////////////////// ismapinti elementai ir ju duomenys
   const [active, setActive] = useState(0);
 
   const activeChange = () => {
@@ -13,8 +15,8 @@ function Bars({ elem, deleteBar, show, preview, editId }) {
   };
   return (
     <li>
-      <div className="scooter">
-        <div className="scooterOne">
+      <div className="element">
+        <div className="elementDetails">
           <span>{elem.name}</span>
           <span>{elem.code}</span>
           <span>{elem.type}</span>

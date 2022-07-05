@@ -11,7 +11,7 @@ function Edit({ edit, cancel, bars }) {
   const [quantity, setQuantity] = useState(0);
   const [price, setPrice] = useState(0);
   const navigate = useNavigate()
-
+//////////////////// kad susistatytu editinima elemento duomenys
   useEffect(() => {
     setCode(bars.code);
     setCalories(bars.calories);

@@ -40,11 +40,6 @@ function View({ view, cancelView }) {
 
   return (
     <div className="popUp">
-      {/* <FontAwesomeIcon
-            className="font"
-            onClick={() => cancelView()}
-            icon={faTimes}
-          ></FontAwesomeIcon> */}
       <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
         <TabList>
           <Tab>Products details</Tab>
@@ -53,7 +48,7 @@ function View({ view, cancelView }) {
         </TabList>
 
         <TabPanel>
-          <div className="choco">
+          <div className="details">
             <img src={getPic()} alt="none" />
             <div className="content">
               <h2>{view.name}</h2>
@@ -76,7 +71,6 @@ function View({ view, cancelView }) {
         <TabPanel>
           <div className="choco">
             <BarChart view={view}></BarChart>
-            {/* <img src={getPic()} alt="none" /> */}
             <Link to="/products">
               <FontAwesomeIcon
                 className="font"
@@ -88,7 +82,7 @@ function View({ view, cancelView }) {
         </TabPanel>
         <TabPanel>
           <div className="choco">
-          <QuantityChart view={view}></QuantityChart>
+            <QuantityChart view={view}></QuantityChart>
             <Link to="/products">
               <FontAwesomeIcon
                 className="font"
@@ -99,25 +93,6 @@ function View({ view, cancelView }) {
           </div>
         </TabPanel>
       </Tabs>
-      {/* <div className="choco">
-        <img src={getPic()} alt="none" />
-        <div className="content">
-          <h2>{view.name}</h2>
-          <p>EAN: {view.code}</p>
-          <p>Types of Chocolate: {view.type}</p>
-          <p>Calories: {view.calories}g </p>
-          <p>Fat: {view.fat}g</p>
-          <p>Quantity: {view.quantity}</p>
-          <p>Price (&#8364;): {view.price}</p>
-        </div>
-        <Link to="/products">
-          <FontAwesomeIcon
-            className="font"
-            onClick={() => cancelView()}
-            icon={faTimes}
-          ></FontAwesomeIcon>
-        </Link>
-      </div> */}
     </div>
   );
 }

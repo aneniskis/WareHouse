@@ -73,7 +73,7 @@ function Create({ create, totalAll }) {
         </div>
         <div className="input">
           <label htmlFor="">Chocolate bars</label>
-          <input type="text" value={name} onChange={changeName} />
+          <input type="text" value={name} onChange={changeName} required />
         </div>
         <div className="input">
           <label>Types of Chocolate</label>
@@ -98,19 +98,19 @@ function Create({ create, totalAll }) {
         </div>
         <div className="input">
           <label htmlFor="">Price</label>
-          <input type="number" step="0.01" min={0} value={price} onChange={changePrice} />
-        </div>
-        <div className="input">
-          <div className="input-btn">
-            <button className="btn" type="submit">
-              Create
-            </button>
-          </div>
+          <input type="number" step="0.01" min={0} value={price} onChange={changePrice} required />
         </div>
         <div className="input">
           <div className="input-btn">
             <button className="btn" onClick={e=> navigate("/products") }>
               Cancel
+            </button>
+          </div>
+        </div>
+        <div className="input">
+          <div className="input-btn">
+            <button className="btn" type="submit">
+              Create
             </button>
           </div>
         </div>
